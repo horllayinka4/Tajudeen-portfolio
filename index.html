@@ -136,6 +136,22 @@
       font-weight: 600;
     }
 
+    .tech-list {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .tech {
+      background: rgba(255,255,255,0.03);
+      color: #dcdcdc;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
     /* Contact Section */
     .contact {
       padding: 4rem 2rem;
@@ -234,7 +250,23 @@
       <div class="project-card">
         <h3>Weather Dashboard</h3>
         <p>A real-time weather application that displays current and forecasted weather data.</p>
-        <!-- tech badges removed -->
+        <div class="tech-list">
+          <span class="tech">API</span>
+          <span class="tech">JavaScript</span>
+          <span class="tech">Fetch</span>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="project-card">
+        <h3>Smart Notes</h3>
+        <p>A lightweight note-taking app with tagging, fast search, offline support, and sync-ready structure for later cloud integration.</p>
+        <div class="tech-list">
+          <span class="tech">HTML</span>
+          <span class="tech">CSS</span>
+          <span class="tech">JavaScript</span>
+          <span class="tech">Service Worker</span>
+          <span class="tech">IndexedDB</span>
+        </div>
       </div>
     </div>
   </section>
