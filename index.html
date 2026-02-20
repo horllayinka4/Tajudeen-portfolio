@@ -67,6 +67,7 @@
     .nav{ display:flex; gap:1rem; align-items:center; }
     .nav a{ color:#cfcfcf; text-decoration:none; font-weight:600; padding:0.35rem 0.6rem; border-radius:6px; }
     .nav a:hover{ background: rgba(255,255,255,0.03); color:#fff; }
+    .nav a.active{ background: rgba(66,133,244,0.15); color:#fff; }
     .nav-toggle{ display:none; background:none; color:#fff; border:0; font-size:1.3rem; }
     @media (max-width: 768px){
       .nav{ position: absolute; right: 1rem; top: 56px; flex-direction: column; background: #161616; padding: 0.6rem; border-radius: 8px; display: none; box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
@@ -315,6 +316,36 @@
     document.querySelectorAll('.nav a').forEach(a=>{
       a.addEventListener('click', ()=> document.querySelector('.nav')?.classList.remove('open'));
     });
+    // Active link highlighting based on scroll position
+    (function(){
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav a');
+      if (!sections.length || !navLinks.length) return;
+
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          const id = entry.target.id;
+          const link = document.querySelector('.nav a[href="#' + id + '"]');
+          if (entry.isIntersecting) {
+            navLinks.forEach(l=>l.classList.remove('active'));
+            if (link) link.classList.add('active');
+          }
+        });
+      }, { root: null, rootMargin: '0px 0px -40% 0px', threshold: 0 });
+
+      sections.forEach(s=>obs.observe(s));
+      // set active on load based on scroll position
+      window.addEventListener('load', ()=>{
+        sections.forEach(s=>{
+          const rect = s.getBoundingClientRect();
+          if (rect.top <= window.innerHeight*0.4 && rect.bottom >= window.innerHeight*0.2) {
+            const link = document.querySelector('.nav a[href="#' + s.id + '"]');
+            navLinks.forEach(l=>l.classList.remove('active'));
+            if (link) link.classList.add('active');
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
