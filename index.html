@@ -49,31 +49,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
-    /* Navigation */
-    .site-header{
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: linear-gradient(180deg, rgba(18,18,18,0.9), rgba(18,18,18,0.7));
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .logo{ color:#fff; font-weight:700; text-decoration:none; font-size:1.1rem; }
-    .nav{ display:flex; gap:1rem; align-items:center; }
-    .nav a{ color:#cfcfcf; text-decoration:none; font-weight:600; padding:0.4rem 0.6rem; border-radius:6px; }
-    .nav a:hover{ background: rgba(255,255,255,0.03); color:#fff; }
-    .nav-toggle{ display:none; background:none; color:#fff; border:0; font-size:1.3rem; }
-    @media (max-width: 768px){
-      .nav{ position: absolute; right: 1.5rem; top: 60px; flex-direction: column; background: #161616; padding: 0.75rem; border-radius: 8px; display: none; box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
-      .nav.open{ display:flex; }
-      .nav-toggle{ display:block; }
-    }
-    html { scroll-behavior: smooth; }
+    /* Navigation removed per request */
 
     .hero p {
       font-size: 1.2rem;
@@ -217,16 +193,7 @@
 </head>
 <body>
   <!-- Header / Navigation (place right after <body>) -->
-<header class="site-header">
-  <a class="logo" href="#home">Tajudeen</a>
-  <button class="nav-toggle" aria-label="Open navigation">☰</button>
-  <nav class="nav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+<!-- Navigation removed per request -->
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -255,31 +222,19 @@
       <div class="project-card">
         <h3>Portfolio Website</h3>
         <p>A modern personal portfolio built with HTML/CSS for showcasing skills and projects.</p>
-        <div class="tech-list">
-          <span class="tech">HTML</span>
-          <span class="tech">CSS</span>
-          <span class="tech">Responsive</span>
-        </div>
+        <!-- tech badges removed -->
       </div>
       <!-- Project 2 -->
       <div class="project-card">
         <h3>Task Manager App</h3>
         <p>A web-based task management tool with features for organizing and prioritizing tasks.</p>
-        <div class="tech-list">
-          <span class="tech">JavaScript</span>
-          <span class="tech">LocalStorage</span>
-          <span class="tech">HTML/CSS</span>
-        </div>
+        <!-- tech badges removed -->
       </div>
       <!-- Project 3 -->
       <div class="project-card">
         <h3>Weather Dashboard</h3>
         <p>A real-time weather application that displays current and forecasted weather data.</p>
-        <div class="tech-list">
-          <span class="tech">API</span>
-          <span class="tech">JavaScript</span>
-          <span class="tech">Fetch</span>
-        </div>
+        <!-- tech badges removed -->
       </div>
     </div>
   </section>
@@ -296,13 +251,6 @@
   <footer class="footer">
     <p>&copy; 2023 Tajudeen. All rights reserved.</p>
   </footer>
-  <script>
-    document.querySelector('.nav-toggle')?.addEventListener('click', function(){
-      document.querySelector('.nav')?.classList.toggle('open');
-    });
-    document.querySelectorAll('.nav a').forEach(a=>{
-      a.addEventListener('click', ()=> document.querySelector('.nav')?.classList.remove('open'));
-    });
-  </script>
+  <!-- Navigation JS removed -->
 </body>
 </html>
