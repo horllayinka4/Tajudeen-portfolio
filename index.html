@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Personal Portfolio</title>
+  <!-- SEO / Social meta -->
+  <meta name="description" content="Tajudeen — Software Developer. Clean, efficient web solutions. Contact for collaboration." />
+  <link rel="canonical" href="https://www.tajudeen-portfolio.online/" />
+  <meta property="og:title" content="Tajudeen — Software Developer" />
+  <meta property="og:description" content="Tajudeen — building clean, efficient web solutions. Contact to collaborate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.tajudeen-portfolio.online/" />
+  <meta property="og:image" content="https://www.tajudeen-portfolio.online/image/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tajudeen — Software Developer" />
+  <meta name="twitter:description" content="Building clean, efficient web solutions. Contact to collaborate." />
+  <meta name="twitter:image" content="https://www.tajudeen-portfolio.online/image/profile.jpg" />
+  <link rel="icon" href="image/profile.jpg" />
   <style>
     /* Reset default styles */
     * {
@@ -73,6 +86,32 @@
       .nav{ position: absolute; right: 1rem; top: 56px; flex-direction: column; background: #161616; padding: 0.6rem; border-radius: 8px; display: none; box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
       .nav.open{ display:flex; }
       .nav-toggle{ display:block; }
+    }
+
+    /* Accessibility */
+    .skip-link{
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus{
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      z-index: 1000;
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(66,133,244,0.35);
+      outline-offset: 2px;
     }
 
     .hero p {
@@ -252,16 +291,17 @@
       }
     }
   </style>
-</head>
-<body>
-  <!-- Header / Navigation (place right after <body>) -->
-<!-- Navigation removed per request -->
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Header / Navigation (place right after <body>) -->
+    <!-- Navigation removed per request -->
 
     <!-- Header / Navigation -->
     <header class="site-header">
       <a class="logo" href="#home">Tajudeen</a>
       <button class="nav-toggle" aria-label="Open navigation">☰</button>
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -269,6 +309,7 @@
       </nav>
     </header>
 
+    <main id="main" role="main">
     <!-- Hero Section -->
     <section id="home" class="hero">
       <img src="image/profile.jpg" alt="Tajudeen" class="profile-pic" />
@@ -333,6 +374,7 @@
       </a>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -377,6 +419,23 @@
         });
       });
     })();
+  </script>
+  <!-- Analytics (optional): uncomment and replace IDs as needed -->
+  <!-- Plausible (privacy-friendly): -->
+  <!-- <script async defer data-domain="tajudeen-portfolio.online" src="https://plausible.io/js/plausible.js"></script> -->
+  <!-- Google Analytics (replace GA_MEASUREMENT_ID): -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script> -->
+
+  <script>
+    // Placeholder when analytics not configured
+    if (!window.plausible && !window.gtag) {
+      console.info('No analytics configured for this site.');
+    }
   </script>
 </body>
 </html>
